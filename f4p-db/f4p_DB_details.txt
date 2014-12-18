@@ -1,0 +1,30 @@
+
+New Database :: feel4cb6_feel4photos
+
+Add New User ::
+
+Username :: feel4cb6_f4p
+Password :: [/*f4p.19.10.2014*\]
+
+
+
+
+Added the database “feel4cb6_feel4photos”.
+You have successfully created a MySQL user named “feel4cb6_f4p”.
+
+
+
+
+
+Feel4photos wordpress administrator login credentials :
+
+wp-admin :: admin	
+wp-password :: *f4p-sudipta-19.10.2014*
+
+for bibhakar ::
+
+wp-admin :: bibhakar
+wp-password :: *f4p-bibhakar-19.10.2014*
+
+
+feel4photos@gmail.com
