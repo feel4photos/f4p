@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<script src="../js/jquerymin.js" type="text/javascript"></script>-->
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<style type="text/css">
+
+/* Cutom Style */
+
+h3{margin: 30px 0 0;}
+#customTheme input.resetBotton, #customTheme input.resetBotton:focus{background: #2EA2CC !important;border: solid 1px #0074A2;box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);color: #FFFFFF;text-decoration: none;padding: 0 10px;}
+.form-table td{padding: 10px;}
+.preview, .previewlarg{float: left; max-width:100%; width:100%;}
+.preview img{width:auto;height:auto; display:block;}
+.previewlarg img{ width:100%;}
+textarea{ resize:vertical; width:70%; height:200px;}
+
+</style>
+<title>Untitled Document</title>
+
+</head>
+
+<body>
+<?php screen_icon('themes'); echo "<h2>". __( 'Cupitts Custom Theme Options', 'customtheme' ) . "</h2>"; ?>
+
+<script type="text/javascript">
+	function readURL(input,id) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				$('#blah'+id).attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+
+</script>
+
+<form method="post" action="#" id="customTheme" enctype="multipart/form-data">
+	
+    <h3>Cupitt's Logo :</h3>
+    <table class="form-table" width="100%">
+    	<tr>
+        	<td width="20%">Logo :</td>
+            <td width="36%"><input type="file" class="file1" name="cupittlogo" id="uploadfile1" value="" onchange="readURL(this,1);" /></td>
+            <td>
+            	<div class="preview"><img id="blah1" src="<?php echo get_option( 'cupitt_logo' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td width="44%"></td>
+        </tr>
+    </table>
+    
+    <h3>Cupitt's Social Icons :</h3>
+    <table class="form-table" width="100%">
+    	<tr>
+        	<td width="20%">Facebook Icon :</td>
+            <td width="26%"><input type="file" class="file1" name="fbicon" id="uploadfile2" value="" onchange="readURL(this,2);" /></td>
+            <td>
+            	<div class="preview"><img id="blah2" src="<?php echo get_option( 'cupitt_fb_icon' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Facebook Link :</td>
+            <td width="35%"><input type="text" name="cupittfblinktxt" value="<?php echo get_option( 'cupittfb_link' );?>" /></td>
+        </tr>
+        <tr>
+        	<td>Twitter Icon :</td>
+            <td><input type="file" class="file1" name="twicon" id="uploadfile3" value="" onchange="readURL(this,3);" /></td>
+            <td>
+            	<div class="preview"><img id="blah3" src="<?php echo get_option( 'cupitt_tw_icon' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Twitter Link :</td>
+            <td><input type="text" name="cupitttwlinktxt" value="<?php echo get_option( 'cupitttw_link' );?>" /></td>
+        </tr>
+        <tr>
+        	<td>Linkedin Icon :</td>
+            <td><input type="file" class="file1" name="linkdinicon" id="uploadfile4" value="" onchange="readURL(this,4);" /></td>
+            <td>
+            	<div class="preview"><img id="blah4" src="<?php echo get_option( 'cupitt_linkedin_icon' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Linkedin Link :</td>
+            <td><input type="text" name="cupittlnlinktxt" value="<?php echo get_option( 'cupittln_link' );?>" /></td>
+        </tr>
+        <tr>
+        	<td>Google+ Icon :</td>
+            <td><input type="file" class="file1" name="gplusicon" id="uploadfile5" value="" onchange="readURL(this,5);" /></td>
+            <td>
+            	<div class="preview"><img id="blah5" src="<?php echo get_option( 'cupitt_gplus_icon' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Google+ Link :</td>
+            <td><input type="text" name="cupittgpluslinktxt" value="<?php echo get_option( 'cupittgplus_link' );?>" /></td>
+        </tr>
+    </table>
+    
+    <h3>Cupitt's General Information :</h3>
+    <table class="form-table" width="100%">
+    	<tr>
+        	<td width="20%">Address :</td>
+            <td><input type="text" name="cupittaddress" value="<?php echo get_option( 'cupitt_address' );?>" /></td>
+        </tr>
+        <tr>
+        	<td>Phone Number :</td>
+            <td><input type="text" name="cupittphoneno" value="<?php echo get_option( 'cupitt_phone' );?>" /></td>
+        </tr>
+        <tr>
+        	<td>Location in Google Map :</td>
+            <td>
+            	<textarea name="cupittgmap">
+                	<?php echo get_option("cupitt_gmap"); ?>
+                </textarea>
+            </td>
+        </tr>
+    </table>
+    
+    <h3>Cupitt's Header Image :</h3>
+    <table class="form-table" width="100%">
+    	<tr>
+        	<td width="20%">Header image for Blog page :</td>
+            <td width="20%"><input type="file" class="file1" name="hdrimgBlog" id="uploadfile7" value="" onchange="readURL(this,7);" /></td>
+            <td>
+            	<div class="previewlarg"><img id="blah7" src="<?php echo get_option( 'header_img_blog' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td width="15%">Title for Blog page :</td>
+            <td width="15%"><input type="text" name="hdrtxtBlog" value="<?php echo get_option( 'header_txt_blog' );?>" /></td>
+        </tr>
+        <tr>
+        	<td width="20%">Header image for Winery Single page :</td>
+            <td width="20%"><input type="file" class="file1" name="hdrimgWineSngle" id="uploadfile9" value="" onchange="readURL(this,9);" /></td>
+            <td>
+            	<div class="previewlarg"><img id="blah9" src="<?php echo get_option( 'header_img_winesignle' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td width="15%">Title for Winery Single page :</td>
+            <td width="15%"><input type="text" name="hdrtxtWineSingl" value="<?php echo get_option( 'header_txt_winesignle' );?>" /></td>
+        </tr>
+    	<tr>
+        	<td>Header image for 404 page :</td>
+            <td><input type="file" class="file1" name="hdrimg404" id="uploadfile6" value="" onchange="readURL(this,6);" /></td>
+            <td>
+            	<div class="previewlarg"><img id="blah6" src="<?php echo get_option( 'header_img_404' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Title for 404 page :</td>
+            <td><input type="text" name="hdrtxt404" value="<?php echo get_option( 'header_txt_404' );?>" /></td>
+        </tr>
+        <tr>
+        	<td>Header image for Search page :</td>
+            <td><input type="file" class="file1" name="hdrimgSrch" id="uploadfile8" value="" onchange="readURL(this,8);" /></td>
+            <td>
+            	<div class="previewlarg"><img id="blah8" src="<?php echo get_option( 'header_img_srch' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Title for Search page :</td>
+            <td><input type="text" name="hdrtxtSrch" value="<?php echo get_option( 'header_txt_srch' );?>" /></td>
+        </tr>
+    </table>
+    
+    <h3>Cupitt's Google Analytic Code :</h3>
+    <table class="form-table" width="100%">
+    	<tr>
+        	<td width="20%">Google Analytic Code :</td>
+            <td><input type="text" name="ganalyticode" value="<?php echo get_option( 'google_analytic_code' );?>" /></td>
+        </tr>
+    </table>
+    
+    <h3>Cupitt's copyright Text :</h3>
+    <table class="form-table" width="100%">
+    	<tr>
+        	<td width="20%">Web Design by :</td>
+            <td><input type="text" name="webdsgnby" value="<?php echo get_option( 'web_design_by' );?>" /></td>
+            <td width="25%"><input type="file" class="file1" name="webdsgnbyicon" id="uploadfile10" value="" onchange="readURL(this,10);" /></td>
+            <td>
+            	<div class="preview"><img id="blah10" src="<?php echo get_option( 'web_design_by_icon' ); ?>" alt="No Image" class="" /></div>
+            </td>
+            <td>Footer Link :</td>
+            <td width="35%"><input type="text" name="webdsgnbylinktxt" value="<?php echo get_option( 'webdsgnby_link' );?>" /></td>
+        </tr>
+    </table>
+    
+    <input type="submit" id="submit" name="submit1" value="Save Changes" class="button button-primary" />
+	<input type="reset" id="reset" name="reset" value="Reset Changes" class="button button-primary resetBotton" />
+</form>
+
+<?php
+	if(isset($_POST['submit1'])) {
+		extract( $_POST );
+		
+		
+		//echo $logofile['url'];
+		
+		
+		/* Image Uploding */
+		if ( ! function_exists( 'wp_handle_upload' ) )
+			require_once( ABSPATH . 'wp-admin/includes/file.php' );
+			
+			
+		$logocupitt = $_FILES['cupittlogo'];
+		$cupitfbicon = $_FILES['fbicon'];
+		$cupittwicon = $_FILES['twicon'];
+		$cupitlinkedinicon = $_FILES['linkdinicon'];
+		$cupitgplusicon = $_FILES['gplusicon'];
+		
+		$cupit404Himg = $_FILES['hdrimg404'];
+		$cupitBlogHimg = $_FILES['hdrimgBlog'];
+		$cupitSrchHimg = $_FILES['hdrimgSrch'];
+		$cupitWineSngleHimg = $_FILES['hdrimgWineSngle'];
+		$cupitWebDsgnByicon = $_FILES['webdsgnbyicon'];
+
+		$upload_overrides = array( 'test_form' => false );
+		
+		$movefile1 = wp_handle_upload( $logocupitt, $upload_overrides ); //file uploaded
+		$movefile2 = wp_handle_upload( $cupitfbicon, $upload_overrides ); //file uploaded
+		$movefile3 = wp_handle_upload( $cupittwicon, $upload_overrides ); //file uploaded
+		$movefile4 = wp_handle_upload( $cupitlinkedinicon, $upload_overrides ); //file uploaded
+		$movefile5 = wp_handle_upload( $cupitgplusicon, $upload_overrides ); //file uploaded
+		
+		$movefile6 = wp_handle_upload( $cupit404Himg, $upload_overrides ); //file uploaded
+		$movefile7 = wp_handle_upload( $cupitBlogHimg, $upload_overrides ); //file uploaded
+		$movefile8 = wp_handle_upload( $cupitSrchHimg, $upload_overrides ); //file uploaded
+		$movefile9 = wp_handle_upload( $cupitWineSngleHimg, $upload_overrides ); //file uploaded
+		$movefile10 = wp_handle_upload( $cupitWebDsgnByicon, $upload_overrides ); //file uploaded
+		//print_r($cupitfbicon);
+		
+		
+		if(!empty($logocupitt['name']))
+		{
+			$logo_val = get_option( 'cupitt_logo' );
+			if((!empty($logocupitt['name'])) && ($logo_val == ''))
+			{
+				add_option( 'cupitt_logo', $movefile1['url'] );
+			}
+			else if(!empty($logocupitt['name']) && ($logo_val!= ''))
+			{		   
+			   update_option( 'cupitt_logo', $movefile1['url'] );
+			}
+		}
+		//echo $cupitfbicon['name'];
+		
+		if(!empty($cupitfbicon['name']))
+		{
+			$fbicon_val = get_option( 'cupitt_fb_icon' );
+			if((!empty($cupitfbicon['name'])) && ($fbicon_val == ''))
+			{
+				add_option( 'cupitt_fb_icon', $movefile2['url'] );
+			}
+			else if(!empty($cupitfbicon['name']) && ($fbicon_val!= ''))
+			{		   
+			   update_option( 'cupitt_fb_icon', $movefile2['url'] );
+			}
+		}
+		
+		if(!empty($cupittwicon['name']))
+		{
+			$twicon_val = get_option( 'cupitt_tw_icon' );
+			if((!empty($cupittwicon['name'])) && ($twicon_val == ''))
+			{
+				add_option( 'cupitt_tw_icon', $movefile3['url'] );
+			}
+			else if(!empty($cupittwicon['name']) && ($twicon_val!= ''))
+			{		   
+			   update_option( 'cupitt_tw_icon', $movefile3['url'] );
+			}
+		}
+		
+		if(!empty($cupitlinkedinicon['name']))
+		{
+			$linkedinicon_val = get_option( 'cupitt_linkedin_icon' );
+			if((!empty($cupitlinkedinicon['name'])) && ($linkedinicon_val == ''))
+			{
+				add_option( 'cupitt_linkedin_icon', $movefile4['url'] );
+			}
+			else if(!empty($cupitlinkedinicon['name']) && ($linkedinicon_val!= ''))
+			{		   
+			   update_option( 'cupitt_linkedin_icon', $movefile4['url'] );
+			}
+		}
+		
+		if(!empty($cupitgplusicon['name']))
+		{
+			$gplusicon_val = get_option( 'cupitt_gplus_icon' );
+			if((!empty($cupitgplusicon['name'])) && ($gplusicon_val == ''))
+			{
+				add_option( 'cupitt_gplus_icon', $movefile5['url'] );
+			}
+			else if(!empty($cupitgplusicon['name']) && ($gplusicon_val!= ''))
+			{		   
+			   update_option( 'cupitt_gplus_icon', $movefile5['url'] );
+			}
+		}
+		
+		if(!empty($cupit404Himg['name']))
+		{
+			$hdrimg404_val = get_option( 'header_img_404' );
+			if((!empty($cupit404Himg['name'])) && ($hdrimg404_val == ''))
+			{
+				add_option( 'header_img_404', $movefile6['url'] );
+			}
+			else if(!empty($cupit404Himg['name']) && ($hdrimg404_val!= ''))
+			{		   
+			   update_option( 'header_img_404', $movefile6['url'] );
+			}
+		}
+		
+		if(!empty($cupitBlogHimg['name']))
+		{
+			$hdrimgblog_val = get_option( 'header_img_blog' );
+			if((!empty($cupitBlogHimg['name'])) && ($hdrimgblog_val == ''))
+			{
+				add_option( 'header_img_blog', $movefile7['url'] );
+			}
+			else if(!empty($cupitBlogHimg['name']) && ($hdrimgblog_val!= ''))
+			{		   
+			   update_option( 'header_img_blog', $movefile7['url'] );
+			}
+		}
+		
+		if(!empty($cupitSrchHimg['name']))
+		{
+			$hdrimgsrch_val = get_option( 'header_img_srch' );
+			if((!empty($cupitSrchHimg['name'])) && ($hdrimgsrch_val == ''))
+			{
+				add_option( 'header_img_srch', $movefile8['url'] );
+			}
+			else if(!empty($cupitSrchHimg['name']) && ($hdrimgsrch_val!= ''))
+			{		   
+			   update_option( 'header_img_srch', $movefile8['url'] );
+			}
+		}
+		
+		if(!empty($cupitWineSngleHimg['name']))
+		{
+			$hdrimgwnesngl_val = get_option( 'header_img_winesignle' );
+			if((!empty($cupitWineSngleHimg['name'])) && ($hdrimgwnesngl_val == ''))
+			{
+				add_option( 'header_img_winesignle', $movefile9['url'] );
+			}
+			else if(!empty($cupitWineSngleHimg['name']) && ($hdrimgwnesngl_val!= ''))
+			{		   
+			   update_option( 'header_img_winesignle', $movefile9['url'] );
+			}
+		}
+		
+		if(!empty($cupitWebDsgnByicon['name']))
+		{
+			$webdsgnbyicon_val = get_option( 'web_design_by_icon' );
+			if((!empty($cupitWebDsgnByicon['name'])) && ($webdsgnbyicon_val == ''))
+			{
+				add_option( 'web_design_by_icon', $movefile10['url'] );
+			}
+			else if(!empty($cupitWebDsgnByicon['name']) && ($webdsgnbyicon_val!= ''))
+			{		   
+			   update_option( 'web_design_by_icon', $movefile10['url'] );
+			}
+		}
+		
+		
+		$cupitt_fb_link = get_option( 'cupittfb_link' );
+		$cupitt_tw_link = get_option( 'cupitttw_link' );
+		$cupitt_ln_link = get_option( 'cupittln_link' );
+		$cupitt_gplus_link = get_option( 'cupittgplus_link' );
+		
+		$cupitt_phone_no = get_option( 'cupitt_phone' );
+		$cupitt_address_txt = get_option( 'cupitt_address' );
+		$cupitt_gmap_code = get_option( 'cupitt_gmap' );
+		
+		$cupit404Hdrtxt = get_option( 'header_txt_404' );
+		$cupitBlogHdrtxt = get_option( 'header_txt_blog' );
+		$cupitSrchHdrtxt = get_option( 'header_txt_srch' );
+		$cupitWineSinglHdrtxt = get_option( 'header_txt_winesignle' );
+		
+		$cupitGoogleAnlytiCode = get_option( 'google_analytic_code' );
+		$cupitWebDesignBY = get_option( 'web_design_by' );
+		$cupit_webdesign_by_link = get_option( 'webdsgnby_link' );
+		
+		
+		if(empty($cupitt_fb_link)) {
+			delete_option( 'cupittfb_link' );
+			add_option( 'cupittfb_link', $cupittfblinktxt, '', 'yes' );
+		} else {
+					update_option( 'cupittfb_link', $cupittfblinktxt );
+			   }
+			   
+		if(empty($cupitt_tw_link)) {
+			delete_option( 'cupitttw_link' );
+			add_option( 'cupitttw_link', $cupitttwlinktxt, '', 'yes' );
+		} else {
+					update_option( 'cupitttw_link', $cupitttwlinktxt );
+			   }	
+			  
+		if(empty($cupitt_ln_link)) {
+			delete_option( 'cupittln_link' );
+			add_option( 'cupittln_link', $cupittlnlinktxt, '', 'yes' );
+		} else {
+					update_option( 'cupittln_link', $cupittlnlinktxt );
+			   }
+			   
+		if(empty($cupitt_gplus_link)) {
+			delete_option( 'cupittgplus_link' );
+			add_option( 'cupittgplus_link', $cupittgpluslinktxt, '', 'yes' );
+		} else {
+					update_option( 'cupittgplus_link', $cupittgpluslinktxt );
+			   }	
+			   
+		if(empty($cupitt_phone_no)) {
+			delete_option( 'cupitt_phone' );
+			add_option( 'cupitt_phone', $cupittphoneno, '', 'yes' );
+		} else {
+					update_option( 'cupitt_phone', $cupittphoneno );
+			   }	
+			   
+		if(empty($cupitt_address_txt)) {
+			delete_option( 'cupitt_address' );
+			add_option( 'cupitt_address', $cupittaddress, '', 'yes' );
+		} else {
+					update_option( 'cupitt_address', $cupittaddress );
+			   }	
+			   
+		if(empty($cupitt_gmap_code)) {
+			delete_option( 'cupitt_gmap' );
+			add_option( 'cupitt_gmap', $cupittgmap, '', 'yes' );
+		} else {
+					update_option( 'cupitt_gmap', $cupittgmap );
+			   }	
+			   
+		if(empty($cupit404Hdrtxt)) {
+			delete_option( 'header_txt_404' );
+			add_option( 'header_txt_404', $hdrtxt404, '', 'yes' );
+		} else {
+					update_option( 'header_txt_404', $hdrtxt404 );
+			   }   
+			   
+		if(empty($cupitBlogHdrtxt)) {
+			delete_option( 'header_txt_blog' );
+			add_option( 'header_txt_blog', $hdrtxtBlog, '', 'yes' );
+		} else {
+					update_option( 'header_txt_blog', $hdrtxtBlog );
+			   }   
+			   
+		if(empty($cupitSrchHdrtxt)) {
+			delete_option( 'header_txt_srch' );
+			add_option( 'header_txt_srch', $hdrtxtSrch, '', 'yes' );
+		} else {
+					update_option( 'header_txt_srch', $hdrtxtSrch );
+			   }  
+			   
+		if(empty($cupitWineSinglHdrtxt)) {
+			delete_option( 'header_txt_winesignle' );
+			add_option( 'header_txt_winesignle', $hdrtxtWineSingl, '', 'yes' );
+		} else {
+					update_option( 'header_txt_winesignle', $hdrtxtWineSingl );
+			   }    
+			   
+		if(empty($cupitGoogleAnlytiCode)) {
+			delete_option( 'google_analytic_code' );
+			add_option( 'google_analytic_code', $ganalyticode, '', 'yes' );
+		} else {
+					update_option( 'google_analytic_code', $ganalyticode );
+			   }  
+			   
+		if(empty($cupitWebDesignBY)) {
+			delete_option( 'web_design_by' );
+			add_option( 'web_design_by', $webdsgnby, '', 'yes' );
+		} else {
+					update_option( 'web_design_by', $webdsgnby );
+			   } 
+			   
+		if(empty($cupit_webdesign_by_link)) {
+			delete_option( 'webdsgnby_link' );
+			add_option( 'webdsgnby_link', $webdsgnbylinktxt, '', 'yes' );
+		} else {
+					update_option( 'webdsgnby_link', $webdsgnbylinktxt );
+			   } 
+			   
+		$location = site_url()."/wp-admin/themes.php?page=custom_theme"; //meta refresh
+		echo "<meta http-equiv=\"Refresh\" content=\"0;url=".$location."\">";
+	}
+
+?>
+
+</body>
+</html>
